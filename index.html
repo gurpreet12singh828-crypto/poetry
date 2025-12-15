@@ -1,111 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gurpreet Singh | Poetry & Words</title>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
+    <title>Gurpreet Singh | Punjabi Poetry</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Gurmukhi:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-<!-- ================= NAVBAR ================= -->
-<header class="hero">
     <nav class="navbar">
-        <h1 class="logo">Gurpreet Singh</h1>
-
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#about">About</a></li>
-            <li><a href="#poetry">Poetry</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="logo">Gurpreet<span class="dot">.</span></div>
+        <div class="nav-right">
+            <button id="theme-btn" aria-label="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="#contact" class="contact-btn">ਸੰਪਰਕ ਕਰੋ (Contact)</a>
+        </div>
     </nav>
 
-    <div class="hero-content">
-        <h2>Poetry that speaks from silence</h2>
-        <p>Words written from emotions, pain, love and hope.</p>
-        <button onclick="scrollToSection('poetry')">Read Poetry</button>
-    </div>
-</header>
-
-<!-- ================= ABOUT ================= -->
-<section id="about" class="section">
-    <h2>About Me</h2>
-    <p class="about-text">
-        My name is Gurpreet Singh. I am a poet and writer who believes poetry
-        is the voice of the soul. Every poem here is inspired by real emotions,
-        silent struggles, love, loneliness and hope.
-    </p>
-</section>
-
-<!-- ================= POETRY ================= -->
-<section id="poetry" class="section dark">
-    <h2>My Poetry</h2>
-
-    <div class="poetry-grid">
-
-        <div class="poem">
-            <h3>Unsaid Words</h3>
-            <p>
-Some words remain silent,
-Not because they are weak,
-But because the heart fears
-What truth might speak.
-            </p>
+    <header class="hero">
+        <div class="hero-content" data-animate="fade-up">
+            <span class="sub-heading">ਪੰਜਾਬੀ ਸ਼ਾਇਰੀ ਦਾ ਸਫ਼ਰ</span>
+            <h1>ਅਲਫ਼ਾਜ਼ਾਂ ਦੀ <span class="highlight">ਦੁਨੀਆ</span></h1>
+            <p class="poet-intro">ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਂ <strong>ਗੁਰਪ੍ਰੀਤ ਸਿੰਘ</strong> ਹਾਂ। ਇਹ ਮੇਰੀਆਂ ਕੁਝ ਲਿਖਤਾਂ, ਗ਼ਜ਼ਲਾਂ ਅਤੇ ਕਵਿਤਾਵਾਂ ਦਾ ਸੰਗ੍ਰਹਿ ਹੈ।</p>
+            <div class="hero-buttons">
+                <a href="#collection" class="btn-primary">ਪੜ੍ਹਨਾ ਸ਼ੁਰੂ ਕਰੋ</a>
+            </div>
         </div>
-
-        <div class="poem">
-            <h3>Loneliness</h3>
-            <p>
-I walk among a thousand faces,
-Yet feel alone inside,
-Loneliness is not being alone,
-It is being unheard while you hide.
-            </p>
+        <div class="feather-icon" data-animate="fade-left">
+            <i class="fas fa-feather-alt"></i>
         </div>
+    </header>
 
-        <div class="poem">
-            <h3>Hope</h3>
-            <p>
-Even when nights feel endless,
-And stars refuse to shine,
-Hope whispers softly,
-This pain is not forever, it will pass with time.
-            </p>
+    <section id="collection" class="collection-section">
+        <div class="container">
+            <h2 class="section-title" data-animate="fade-up">ਨਵੀਆਂ ਰਚਨਾਵਾਂ</h2>
+            <div class="poetry-grid">
+
+                <div class="poetry-card" data-animate="fade-up">
+                    <div class="card-icon"><i class="fas fa-quote-left"></i></div>
+                    <h3>ਜ਼ਿੰਦਗੀ ਦੇ ਰੰਗ</h3>
+                    <p class="poem-text">
+ਕਦੇ ਧੁੱਪ ਹੈ ਕਦੇ ਛਾਂ ਹੈ,
+ਇਹੀ ਤਾਂ ਜ਼ਿੰਦਗੀ ਦਾ ਨਾਂ ਹੈ।
+ਜੋ ਹੱਸ ਕੇ ਲੰਘ ਜਾਵੇ ਵਕਤ,
+ਉਹੀ ਅਸਲ ਵਿੱਚ ਜੀਣ ਦੀ ਥਾਂ ਹੈ।
+                    </p>
+                    <div class="card-footer">
+                        <span class="date">Dec 14, 2025</span>
+                        <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+
+                <div class="poetry-card" data-animate="fade-up" style="transition-delay: 0.1s;">
+                    <div class="card-icon"><i class="fas fa-quote-left"></i></div>
+                    <h3>ਮਿੱਟੀ ਦੀ ਖੁਸ਼ਬੂ</h3>
+                    <p class="poem-text">
+ਮਿੱਟੀ ਨਾਲ ਜੁੜੇ ਰਹਿਣਾ ਸਿੱਖੋ,
+ਅਸਮਾਨੀ ਉੱਡਣਾ ਕਮਾਲ ਨਹੀਂ।
+ਜੜ੍ਹਾਂ ਜੇ ਮਜ਼ਬੂਤ ਹੋਣ ਸੱਜਣਾ,
+ਤਾਂ ਪੱਤਝੜ ਦਾ ਕੋਈ ਸਵਾਲ ਨਹੀਂ।
+                    </p>
+                    <div class="card-footer">
+                        <span class="date">Nov 20, 2025</span>
+                        <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+
+                <div class="poetry-card" data-animate="fade-up" style="transition-delay: 0.2s;">
+                    <div class="card-icon"><i class="fas fa-quote-left"></i></div>
+                    <h3>ਇਸ਼ਕ ਹਕੀਕੀ</h3>
+                    <p class="poem-text">
+ਉਹ ਲੱਭਦਾ ਰਿਹਾ ਖੁਦਾ ਨੂੰ ਮੰਦਰਾਂ ਵਿੱਚ,
+ਮੈਂ ਲੱਭਿਆ ਉਸਨੂੰ ਇਨਸਾਨਾਂ ਵਿੱਚ।
+ਫਰਕ ਬੱਸ ਏਨਾ ਸੀ ਸਾਡੀ ਇਬਾਦਤ ਦਾ,
+ਉਹ ਉਲਝਿਆ ਰਿਹਾ ਬੇਜਾਨਾਂ ਵਿੱਚ।
+                    </p>
+                    <div class="card-footer">
+                        <span class="date">Oct 05, 2025</span>
+                        <button class="share-btn"><i class="fas fa-share-alt"></i></button>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <div class="poem">
-            <h3>Love</h3>
-            <p>
-Love is not always closeness,
-Sometimes it is distance and pain,
-Yet choosing the same soul,
-Again and again.
-            </p>
+    <footer id="contact">
+        <div class="footer-content" data-animate="fade-up">
+            <h2>ਗੁਰਪ੍ਰੀਤ ਸਿੰਘ</h2>
+            <p>Punjabi Poet & Writer | Khalsa College, Amritsar</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="mailto:gurpreet@example.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Gurpreet Singh Poetry.</p>
         </div>
+    </footer>
 
-    </div>
-</section>
-
-<!-- ================= CONTACT ================= -->
-<section id="contact" class="section">
-    <h2>Contact</h2>
-    <p class="contact-text">If my poetry touched your heart, feel free to connect.</p>
-    <p class="contact-text">Email: gurpreet.writer@email.com</p>
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-    <p>© 2025 Gurpreet Singh | Poetry Website</p>
-</footer>
-
-<!-- JS -->
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
