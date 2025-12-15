@@ -1,104 +1,140 @@
 <!DOCTYPE html>
-<html lang="pa">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gurpreet Singh | Punjabi Poetry</title>
+    <title>Gurpreet Singh | The Poet Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Noto+Sans+Gurmukhi:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts: 'Outfit' for UI, 'Noto Sans Gurmukhi' for Punjabi -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Noto+Sans+Gurmukhi:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">Gurpreet<span class="color-dot">.</span></div>
-        <div class="nav-right">
+    <!-- Background Gradient Animation -->
+    <div class="background-animate"></div>
+
+    <!-- Navbar -->
+    <nav class="glass-nav">
+        <div class="logo">Gurpreet<span class="dot">.</span></div>
+        <div class="nav-controls">
             <button id="theme-btn" aria-label="Toggle Theme">
                 <i class="fas fa-moon"></i>
             </button>
-            <a href="#contact" class="btn-contact">ਸੰਪਰਕ (Contact)</a>
+            <a href="#poems" class="cta-btn">Read Poems</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content" data-animate="fade-up">
-            <span class="category-tag">ਪੰਜਾਬੀ ਸ਼ਾਇਰੀ</span>
-            <h1>ਅਲਫ਼ਾਜ਼ਾਂ ਦੀ <span class="gradient-text">ਪਰਵਾਜ਼</span></h1>
-            <p class="intro">
-                ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਂ <strong>ਗੁਰਪ੍ਰੀਤ ਸਿੰਘ</strong> ਹਾਂ।<br>
-                ਇਹ ਮੇਰੇ ਦਿਲ ਦੇ ਜਜ਼ਬਾਤ ਅਤੇ ਰੂਹ ਦੀ ਆਵਾਜ਼ ਹੈ।
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="badge" data-animate="fade-down">The Wordsmith</span>
+            <h1 data-animate="fade-up">Hello, I'm <br> <span class="gradient-text">Gurpreet Singh</span></h1>
+            
+            <!-- Typing Effect Container -->
+            <h2 class="typing-container">
+                I write <span class="typing-text"></span><span class="cursor">|</span>
+            </h2>
+            
+            <p data-animate="fade-up">
+                Weaving emotions into Punjabi verses. Welcome to my digital diary.
             </p>
-            <div class="hero-decoration">
-                <span class="line"></span>
-                <i class="fas fa-pen-nib"></i>
-                <span class="line"></span>
+
+            <div class="social-hero" data-animate="fade-up">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-pen-fancy"></i></a>
             </div>
         </div>
-    </header>
 
-    <section class="collection-section">
+        <!-- Abstract Visual (Instead of Image) -->
+        <div class="hero-visual" data-animate="zoom-in">
+            <div class="glowing-circle">
+                <div class="inner-content">
+                    <i class="fas fa-feather-alt main-icon"></i>
+                </div>
+                <!-- Orbiting Elements -->
+                <div class="orbit-dot dot-1">✒</div>
+                <div class="orbit-dot dot-2">📖</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Poetry Grid Section -->
+    <section id="poems" class="section">
         <div class="container">
             <div class="section-header" data-animate="fade-up">
-                <h2>ਨਵੀਆਂ ਰਚਨਾਵਾਂ</h2>
-                <p>Latest Collection</p>
+                <h2>Featured Poetry</h2>
+                <p>Selected writings from my heart</p>
             </div>
-            
-            <div class="poetry-grid">
 
-                <div class="poem-card color-1" data-animate="fade-up">
-                    <div class="card-border"></div>
-                    <div class="icon-box"><i class="fas fa-feather-alt"></i></div>
-                    <h3>ਜ਼ਿੰਦਗੀ</h3>
-                    <p class="poem-text">
-                        ਰਾਹਾਂ ਦੇ ਵਿੱਚ ਧੁੱਪ ਛਾਂ ਹੈ,
-                        ਇਹੀ ਤਾਂ ਜ਼ਿੰਦਗੀ ਦਾ ਨਾਂ ਹੈ।
-                        ਜੋ ਹੱਸ ਕੇ ਲੰਘ ਜਾਵੇ ਵਕਤ,
-                        ਉਹੀ ਅਸਲ ਵਿੱਚ ਜੀਣ ਦੀ ਥਾਂ ਹੈ।
+            <div class="masonry-grid">
+                
+                <!-- Poem Card 1 (Large) -->
+                <div class="poem-card large glass-card" data-animate="fade-up">
+                    <div class="card-tag">Trending</div>
+                    <h3>ਰੂਹ ਦੀ ਆਵਾਜ਼ (Soul's Voice)</h3>
+                    <p class="punjabi-text">
+                        ਜਿੱਥੇ ਖਤਮ ਹੁੰਦੀ ਹੈ ਸੋਚ ਲੋਕਾਂ ਦੀ,
+                        ਉਥੋਂ ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ ਕਹਾਣੀ ਮੇਰੀ।
+                        ਲਫ਼ਜ਼ਾਂ ਵਿੱਚ ਨਾ ਲੱਭ ਮੈਨੂੰ,
+                        ਖਾਮੋਸ਼ੀ ਹੀ ਹੈ ਜ਼ੁਬਾਨੀ ਮੇਰੀ।
                     </p>
-                    <div class="signature">- ਗੁਰਪ੍ਰੀਤ ਸਿੰਘ</div>
+                    <div class="card-footer">
+                        <span><i class="far fa-heart"></i> 120 Likes</span>
+                        <button class="read-more"><i class="fas fa-arrow-right"></i></button>
+                    </div>
                 </div>
 
-                <div class="poem-card color-2" data-animate="fade-up" style="transition-delay: 0.1s;">
-                    <div class="card-border"></div>
-                    <div class="icon-box"><i class="fas fa-cloud-moon"></i></div>
-                    <h3>ਇਸ਼ਕ</h3>
-                    <p class="poem-text">
-                        ਉਹ ਲੱਭਦਾ ਰਿਹਾ ਖੁਦਾ ਨੂੰ ਮੰਦਰਾਂ ਵਿੱਚ,
-                        ਮੈਂ ਲੱਭਿਆ ਉਸਨੂੰ ਇਨਸਾਨਾਂ ਵਿੱਚ।
-                        ਫਰਕ ਬੱਸ ਏਨਾ ਸੀ ਸਾਡੀ ਇਬਾਦਤ ਦਾ,
-                        ਉਹ ਉਲਝਿਆ ਰਿਹਾ ਬੇਜਾਨਾਂ ਵਿੱਚ।
+                <!-- Poem Card 2 -->
+                <div class="poem-card glass-card" data-animate="fade-up" style="transition-delay: 0.1s;">
+                    <h3>ਇੰਤਜ਼ਾਰ (Waiting)</h3>
+                    <p class="punjabi-text">
+                        ਸੁੱਕੇ ਪੱਤਿਆਂ ਵਾਂਗ ਬਿਖਰ ਗਏ ਹਾਂ,
+                        ਤੇਰੇ ਆਉਣ ਦੀ ਆਸ ਵਿੱਚ ਨਿਖਰ ਗਏ ਹਾਂ।
                     </p>
-                    <div class="signature">- ਗੁਰਪ੍ਰੀਤ ਸਿੰਘ</div>
+                    <div class="card-footer">
+                        <span><i class="far fa-heart"></i> 85 Likes</span>
+                    </div>
                 </div>
 
-                <div class="poem-card color-3" data-animate="fade-up" style="transition-delay: 0.2s;">
-                    <div class="card-border"></div>
-                    <div class="icon-box"><i class="fas fa-tree"></i></div>
-                    <h3>ਜੜ੍ਹਾਂ</h3>
-                    <p class="poem-text">
-                        ਮਿੱਟੀ ਨਾਲ ਜੁੜੇ ਰਹਿਣਾ ਸਿੱਖੋ,
-                        ਅਸਮਾਨੀ ਉੱਡਣਾ ਕਮਾਲ ਨਹੀਂ।
-                        ਜੜ੍ਹਾਂ ਜੇ ਮਜ਼ਬੂਤ ਹੋਣ ਸੱਜਣਾ,
-                        ਤਾਂ ਪੱਤਝੜ ਦਾ ਕੋਈ ਸਵਾਲ ਨਹੀਂ।
+                <!-- Poem Card 3 -->
+                <div class="poem-card glass-card" data-animate="fade-up" style="transition-delay: 0.2s;">
+                    <h3>ਮਾਂ (Mother)</h3>
+                    <p class="punjabi-text">
+                        ਰੱਬ ਦਾ ਦੂਜਾ ਰੂਪ ਹੈ ਮਾਂ,
+                        ਤਪਦੀ ਧੁੱਪ ਵਿੱਚ ਠੰਡੀ ਛਾਂ।
+                        ਜਦੋਂ ਵੀ ਡਿੱਗਿਆ ਹੌਂਸਲਾ ਮੇਰਾ,
+                        ਉਸਨੇ ਫੜ ਕੇ ਉਠਾਇਆ ਮੇਰੀ ਬਾਂਹ।
                     </p>
-                    <div class="signature">- ਗੁਰਪ੍ਰੀਤ ਸਿੰਘ</div>
+                    <div class="card-footer">
+                        <span><i class="far fa-heart"></i> 200 Likes</span>
+                    </div>
+                </div>
+
+                <!-- Poem Card 4 -->
+                <div class="poem-card glass-card" data-animate="fade-up" style="transition-delay: 0.3s;">
+                    <h3>ਸੱਚ (Truth)</h3>
+                    <p class="punjabi-text">
+                        ਸ਼ੀਸ਼ੇ ਅੱਗੇ ਖੜ੍ਹ ਕੇ ਵੇਖਿਆ,
+                        ਦਾਗ ਚਿਹਰੇ ਤੇ ਨਹੀਂ, ਦਿਲ ਤੇ ਸੀ।
+                    </p>
+                    <div class="card-footer">
+                        <span><i class="far fa-heart"></i> 95 Likes</span>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <footer id="contact">
-        <div class="footer-content">
+    <!-- Footer -->
+    <footer>
+        <div class="footer-glass">
             <h2>Gurpreet Singh</h2>
-            <p>Poet & Writer | Khalsa College, Amritsar</p>
-            <div class="social-icons">
-                <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="mailto:email@example.com" class="social-btn email"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p class="copyright">&copy; 2025 All Rights Reserved.</p>
+            <p>Connect for collaborations and poetry events.</p>
+            <a href="mailto:gurpreet@example.com" class="email-btn">Email Me</a>
+            <div class="copyright">© 2025 All Rights Reserved</div>
         </div>
     </footer>
 
