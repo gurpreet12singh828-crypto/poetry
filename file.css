@@ -1,271 +1,282 @@
 /* --- 1. CONFIGURATION --- */
 :root {
     /* Fonts */
+    --font-ui: 'Outfit', sans-serif;
     --font-punjabi: 'Noto Sans Gurmukhi', sans-serif;
-    --font-eng: 'Merriweather', serif;
 
-    /* Light Mode Palette */
-    --bg-color: #fffbf7;       /* Warm Paper Color */
-    --text-main: #2c1810;      /* Dark Brown/Black */
-    --text-muted: #8d6e63;
-    --card-bg: #ffffff;
-    --nav-bg: rgba(255, 251, 247, 0.95);
-    --border: #eaddcf;
-    
-    /* Accents (The Colors) */
-    --accent-purple: #8e44ad;
-    --accent-teal: #00897b;
-    --accent-orange: #d35400;
-    --accent-gold: #f1c40f;
-    
-    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    /* Light Theme (Dreamy Sunset) */
+    --bg-color: #fdf2f8;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --primary: #db2777; /* Pink */
+    --secondary: #7c3aed; /* Purple */
+    --accent: #f59e0b; /* Orange */
+    --gradient: linear-gradient(135deg, #db2777 0%, #7c3aed 100%);
+    --bg-blob: linear-gradient(120deg, #fce7f3 0%, #e0e7ff 100%);
 }
 
 body.dark-mode {
-    /* Dark Mode Palette */
-    --bg-color: #121212;       /* Pure Black */
-    --text-main: #e0e0e0;
-    --text-muted: #a0a0a0;
-    --card-bg: #1e1e1e;
-    --nav-bg: rgba(18, 18, 18, 0.95);
-    --border: #333333;
-    --shadow: 0 10px 30px rgba(0,0,0,0.5);
+    /* Dark Theme (Cyber Poetry) */
+    --bg-color: #0f172a;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --primary: #f472b6; /* Light Pink */
+    --secondary: #a78bfa; /* Light Purple */
+    --bg-blob: linear-gradient(120deg, #1e1b4b 0%, #312e81 100%);
 }
 
-/* --- 2. RESET --- */
+/* --- 2. RESET & BASE --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    background-color: var(--bg-color);
+    font-family: var(--font-ui);
+    background: var(--bg-color);
     color: var(--text-main);
-    font-family: var(--font-punjabi);
-    transition: background-color 0.4s ease, color 0.4s ease;
-    line-height: 1.8;
+    transition: 0.5s ease;
+    overflow-x: hidden;
 }
 
-/* --- 3. NAVBAR --- */
-.navbar {
+/* Moving Background Gradient */
+.background-animate {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg-blob);
+    z-index: -2;
+    background-size: 200% 200%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- 3. NAVBAR (Glassy) --- */
+.glass-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: var(--nav-bg);
-    backdrop-filter: blur(10px);
+    padding: 15px 30px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
     z-index: 100;
-    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
-.logo {
-    font-family: var(--font-eng);
-    font-weight: 700;
-    font-size: 1.5rem;
-}
-.color-dot { color: var(--accent-orange); font-size: 2rem; line-height: 0; }
+.logo { font-weight: 700; font-size: 1.5rem; letter-spacing: -1px; }
+.dot { color: var(--primary); font-size: 2rem; line-height: 0; }
 
-.nav-right { display: flex; gap: 15px; align-items: center; }
+.nav-controls { display: flex; gap: 15px; align-items: center; }
 
 #theme-btn {
-    background: none;
+    background: transparent;
     border: 1px solid var(--text-muted);
     color: var(--text-main);
-    width: 40px;
-    height: 40px;
+    width: 40px; height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.1rem;
     transition: 0.3s;
     display: flex; align-items: center; justify-content: center;
 }
 #theme-btn:hover { background: var(--text-main); color: var(--bg-color); }
 
-.btn-contact {
+.cta-btn {
+    background: var(--gradient);
+    color: white;
+    padding: 10px 24px;
+    border-radius: 30px;
     text-decoration: none;
-    color: var(--text-main);
-    font-weight: 600;
+    font-weight: 500;
     font-size: 0.9rem;
+    transition: 0.3s;
 }
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3); }
 
-/* --- 4. HERO SECTION (Colorful & Professional) --- */
+/* --- 4. HERO SECTION --- */
 .hero {
-    height: 80vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    padding: 0 20px;
-    /* Beautiful Gradient Background */
-    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    justify-content: space-between;
+    padding: 0 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 80px;
 }
 
-body.dark-mode .hero {
-    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
-}
+.hero-content { max-width: 600px; }
 
-.hero-content {
-    max-width: 700px;
-    z-index: 2;
-}
-
-.category-tag {
+.badge {
     display: inline-block;
-    background: rgba(142, 68, 173, 0.1); /* Light Purple */
-    color: var(--accent-purple);
-    padding: 5px 15px;
+    padding: 6px 15px;
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--secondary);
     border-radius: 20px;
     font-size: 0.9rem;
-    font-weight: 700;
-    margin-bottom: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 15px;
-    line-height: 1.2;
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
 }
 
-/* Text Gradient Effect */
 .gradient-text {
-    background: linear-gradient(45deg, var(--accent-orange), var(--accent-purple));
+    background: var(--gradient);
     -webkit-background-clip: text;
     color: transparent;
 }
 
-.intro {
-    font-size: 1.2rem;
+.typing-container {
+    font-size: 1.5rem;
     color: var(--text-muted);
     margin-bottom: 30px;
+    font-weight: 400;
 }
+.cursor { animation: blink 1s infinite; color: var(--primary); }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-.hero-decoration {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+.social-hero a {
+    font-size: 1.5rem;
     color: var(--text-muted);
-    opacity: 0.6;
+    margin-right: 20px;
+    transition: 0.3s;
 }
-.line { width: 50px; height: 1px; background: var(--text-muted); }
+.social-hero a:hover { color: var(--primary); transform: translateY(-3px); }
 
-/* --- 5. POETRY CARDS (The Colorful Part) --- */
-.collection-section { padding: 80px 5%; }
+/* --- 5. HERO VISUAL (Animated Circle) --- */
+.hero-visual { position: relative; }
 
+.glowing-circle {
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    box-shadow: 0 0 50px rgba(124, 58, 237, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.main-icon { font-size: 4rem; color: var(--primary); }
+
+.orbit-dot {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: orbit 6s linear infinite;
+}
+.dot-1 { top: 0; left: 50%; transform-origin: 0 175px; }
+.dot-2 { bottom: 0; right: 50%; transform-origin: 0 -175px; animation-delay: -3s; }
+
+@keyframes orbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- 6. POETRY SECTION (Masonry Grid) --- */
+.section { padding: 80px 5%; }
 .section-header { text-align: center; margin-bottom: 50px; }
 .section-header h2 { font-size: 2.5rem; }
-.section-header p { color: var(--text-muted); font-family: var(--font-eng); letter-spacing: 1px; }
 
-.poetry-grid {
+.masonry-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
+    gap: 25px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.poem-card {
-    background: var(--card-bg);
-    padding: 40px 30px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    border: 1px solid var(--border);
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    transition: 0.4s ease;
+    display: flex; flex-direction: column; justify-content: space-between;
+}
+.glass-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+.large { grid-row: span 2; }
+
+.card-tag {
+    background: var(--gradient);
+    color: white;
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    width: fit-content;
+    margin-bottom: 15px;
 }
 
-.poem-card:hover { transform: translateY(-10px); }
-
-/* Card Top Border Accent */
-.card-border {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-}
-
-/* Color Themes for Cards */
-.color-1 .card-border { background: var(--accent-purple); }
-.color-1 .icon-box { color: var(--accent-purple); background: rgba(142, 68, 173, 0.1); }
-
-.color-2 .card-border { background: var(--accent-teal); }
-.color-2 .icon-box { color: var(--accent-teal); background: rgba(0, 137, 123, 0.1); }
-
-.color-3 .card-border { background: var(--accent-orange); }
-.color-3 .icon-box { color: var(--accent-orange); background: rgba(211, 84, 0, 0.1); }
-
-.icon-box {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
+.glass-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--text-main); }
+.punjabi-text {
+    font-family: var(--font-punjabi);
     font-size: 1.2rem;
-}
-
-.poem-card h3 { font-size: 1.6rem; margin-bottom: 20px; font-weight: 700; }
-
-.poem-text {
-    font-size: 1.15rem;
     color: var(--text-muted);
-    white-space: pre-line; /* Keeps poem formatting */
-    margin-bottom: 30px;
-    font-weight: 500;
+    line-height: 1.8;
+    white-space: pre-line;
+    margin-bottom: 20px;
 }
 
-.signature {
-    font-family: var(--font-eng);
-    font-size: 0.9rem;
-    font-style: italic;
-    opacity: 0.7;
+.card-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.9rem; color: var(--primary); font-weight: 600;
 }
-
-/* --- 6. FOOTER --- */
-footer {
-    text-align: center;
-    padding: 60px 0 30px;
-    margin-top: 50px;
-    border-top: 1px solid var(--border);
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-}
-
-.social-btn {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-main);
-    background: var(--border);
+.read-more {
+    background: var(--glass-border);
+    border: none;
+    width: 35px; height: 35px; border-radius: 50%;
+    cursor: pointer; color: var(--text-main);
     transition: 0.3s;
-    font-size: 1.2rem;
+}
+.read-more:hover { background: var(--primary); color: white; }
+
+/* --- 7. FOOTER --- */
+footer { padding: 50px 5%; text-align: center; }
+.footer-glass {
+    background: var(--glass-bg);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid var(--glass-border);
 }
 
-.social-btn:hover { color: #fff; transform: scale(1.1); }
-.instagram:hover { background: #E1306C; }
-.facebook:hover { background: #4267B2; }
-.email:hover { background: var(--accent-teal); }
+.email-btn {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid var(--primary);
+}
 
-.copyright { font-size: 0.8rem; color: var(--text-muted); }
+/* --- 8. MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .hero { flex-direction: column; text-align: center; gap: 50px; padding-top: 120px; }
+    .hero h1 { font-size: 3rem; }
+    .glowing-circle { width: 280px; height: 280px; }
+    .dot-1 { transform-origin: 0 140px; }
+    .dot-2 { transform-origin: 0 -140px; }
+}
 
-/* --- 7. ANIMATIONS --- */
+/* ANIMATION CLASSES */
 [data-animate] { opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
 [data-animate].visible { opacity: 1; transform: translateY(0); }
-
-/* Mobile */
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-}
