@@ -1,60 +1,166 @@
-<!-- CSS File -->
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-<header>
-  <div class="hero">
-    <h1>Gurpreet Singh</h1>
-    <p>Poet | Writer | Storyteller</p>
-    <button onclick="scrollToPoems()">Read My Poetry</button>
-  </div>
-</header>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: #f5f5f5;
+    line-height: 1.7;
+}
 
-<section class="section">
-  <h2>About Me</h2>
-  <p class="about">
-    I am Gurpreet Singh, a passionate poet and writer. I express emotions,
-    silence, pain, love and hope through words. Writing is my soul’s language.
-  </p>
-</section>
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+}
 
-<section class="section" id="poetry">
-  <h2>My Poetry</h2>
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+}
 
-  <div class="poems">
-    <div class="poem-card">
-      <h3>Unsaid Words</h3>
-      <p>
-Some words remain silent,
-Not because they are weak,
-But because hearts are afraid
-To let them speak.
-      </p>
-    </div>
+.nav-links {
+    list-style: none;
+    display: flex;
+}
 
-    <div class="poem-card">
-      <h3>Loneliness</h3>
-      <p>
-I sit with a crowd,
-Yet feel alone inside,
-Smiling faces everywhere,
-But my soul quietly cried.
-      </p>
-    </div>
+.nav-links li {
+    margin-left: 25px;
+}
 
-    <div class="poem-card">
-      <h3>Hope</h3>
-      <p>
-Even in the darkest night,
-A small star learns to shine,
-Teaching broken hearts
-That time will be kind.
-      </p>
-    </div>
-  </div>
-</section>
+.nav-links a {
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 0.95rem;
+}
 
-<footer>
-  © 2025 Gurpreet Singh | All Rights Reserved
-</footer>
+.menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* ===== HERO ===== */
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(120deg, #1a1a1a, #000);
+}
+
+.hero-content {
+    text-align: center;
+    margin-top: 120px;
+    padding: 0 10%;
+}
+
+.hero-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+}
+
+.hero-content p {
+    margin-top: 15px;
+    color: #cfcfcf;
+}
+
+button {
+    margin-top: 30px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 30px;
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+    padding: 80px 10%;
+}
+
+.section h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+}
+
+.about-text,
+.contact-text {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    color: #ccc;
+}
+
+.dark {
+    background: #151515;
+}
+
+/* ===== POETRY ===== */
+.poetry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.poem {
+    background: #1f1f1f;
+    padding: 25px;
+    border-radius: 16px;
+    transition: 0.3s;
+}
+
+.poem:hover {
+    transform: translateY(-8px);
+    background: #242424;
+}
+
+.poem h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 12px;
+}
+
+.poem p {
+    white-space: pre-line;
+    color: #d0d0d0;
+    font-size: 0.95rem;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #000;
+    color: #777;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #000;
+        flex-direction: column;
+        width: 200px;
+        display: none;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+}
