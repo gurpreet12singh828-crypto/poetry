@@ -1,123 +1,111 @@
-<!-- ================= index.html ================= -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gurpreet Singh | Poet & Writer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurpreet Singh | Poetry & Words</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-  
-<!-- JS File -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="hero">
+    <nav class="navbar">
+        <h1 class="logo">Gurpreet Singh</h1>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#poetry">Poetry</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <div class="hero-content">
+        <h2>Poetry that speaks from silence</h2>
+        <p>Words written from emotions, pain, love and hope.</p>
+        <button onclick="scrollToSection('poetry')">Read Poetry</button>
+    </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="section">
+    <h2>About Me</h2>
+    <p class="about-text">
+        My name is Gurpreet Singh. I am a poet and writer who believes poetry
+        is the voice of the soul. Every poem here is inspired by real emotions,
+        silent struggles, love, loneliness and hope.
+    </p>
+</section>
+
+<!-- ================= POETRY ================= -->
+<section id="poetry" class="section dark">
+    <h2>My Poetry</h2>
+
+    <div class="poetry-grid">
+
+        <div class="poem">
+            <h3>Unsaid Words</h3>
+            <p>
+Some words remain silent,
+Not because they are weak,
+But because the heart fears
+What truth might speak.
+            </p>
+        </div>
+
+        <div class="poem">
+            <h3>Loneliness</h3>
+            <p>
+I walk among a thousand faces,
+Yet feel alone inside,
+Loneliness is not being alone,
+It is being unheard while you hide.
+            </p>
+        </div>
+
+        <div class="poem">
+            <h3>Hope</h3>
+            <p>
+Even when nights feel endless,
+And stars refuse to shine,
+Hope whispers softly,
+This pain is not forever, it will pass with time.
+            </p>
+        </div>
+
+        <div class="poem">
+            <h3>Love</h3>
+            <p>
+Love is not always closeness,
+Sometimes it is distance and pain,
+Yet choosing the same soul,
+Again and again.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="section">
+    <h2>Contact</h2>
+    <p class="contact-text">If my poetry touched your heart, feel free to connect.</p>
+    <p class="contact-text">Email: gurpreet.writer@email.com</p>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>© 2025 Gurpreet Singh | Poetry Website</p>
+</footer>
+
+<!-- JS -->
 <script src="script.js"></script>
 </body>
 </html>
-
-
-<!-- ================= style.css ================= -->
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  background:#0f0f0f;
-  color:#f5f5f5;
-  font-family:'Poppins', sans-serif;
-  line-height:1.6;
-}
-
-header{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background:linear-gradient(120deg,#1a1a1a,#000);
-}
-
-.hero h1{
-  font-family:'Playfair Display', serif;
-  font-size:3.5rem;
-}
-
-.hero p{
-  margin-top:10px;
-  font-size:1.2rem;
-  color:#b5b5b5;
-}
-
-button{
-  margin-top:25px;
-  padding:12px 28px;
-  border:none;
-  border-radius:30px;
-  background:#ffffff;
-  color:#000;
-  cursor:pointer;
-  font-weight:500;
-}
-
-button:hover{
-  background:#ddd;
-}
-
-.section{
-  padding:80px 10%;
-}
-
-h2{
-  font-family:'Playfair Display', serif;
-  text-align:center;
-  font-size:2.5rem;
-  margin-bottom:30px;
-}
-
-.about{
-  max-width:800px;
-  margin:auto;
-  text-align:center;
-  color:#ccc;
-}
-
-.poems{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
-}
-
-.poem-card{
-  background:#1c1c1c;
-  padding:25px;
-  border-radius:15px;
-  transition:0.3s;
-}
-
-.poem-card:hover{
-  transform:translateY(-8px);
-  background:#222;
-}
-
-.poem-card h3{
-  font-family:'Playfair Display', serif;
-  margin-bottom:10px;
-}
-
-.poem-card p{
-  white-space:pre-line;
-  color:#bdbdbd;
-  font-size:0.95rem;
-}
-
-footer{
-  background:#000;
-  text-align:center;
-  padding:25px;
-  color:#777;
-  font-size:0.9rem;
-}
-
-
