@@ -1,10 +1,11 @@
-// 1. Theme Toggle
+// 1. Theme Toggle Logic
 const themeBtn = document.getElementById('theme-btn');
 const themeIcon = themeBtn.querySelector('i');
 const body = document.body;
 
-// Check Local Storage
-if (localStorage.getItem('theme') === 'dark') {
+// Check saved theme
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'dark') {
     body.classList.add('dark-mode');
     themeIcon.classList.remove('fa-moon');
     themeIcon.classList.add('fa-sun');
@@ -24,18 +25,14 @@ themeBtn.addEventListener('click', () => {
     }
 });
 
-// 2. Scroll Animation Observer
-const observerOptions = {
-    threshold: 0.1
-};
-
+// 2. Scroll Animation
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
         }
     });
-}, observerOptions);
+}, { threshold: 0.1 });
 
 document.querySelectorAll('[data-animate]').forEach((el) => {
     observer.observe(el);
