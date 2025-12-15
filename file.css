@@ -1,38 +1,46 @@
-/* --- 1. THEME CONFIGURATION --- */
+/* --- 1. CONFIGURATION --- */
 :root {
-    /* Light Mode (Paper/Classic Theme) */
-    --bg-color: #fffbeb;      /* Cream / Parchment */
-    --card-bg: #ffffff;
-    --text-main: #4a0404;     /* Deep Maroon */
-    --text-muted: #8b5e3c;    /* Light Brown */
-    --accent: #d97706;        /* Gold/Amber */
-    --border: #e7e5e4;
-    --shadow: 0 10px 30px rgba(74, 4, 4, 0.05);
-    
+    /* Fonts */
     --font-punjabi: 'Noto Sans Gurmukhi', sans-serif;
-    --font-heading: 'Playfair Display', serif; /* For English headings */
+    --font-eng: 'Merriweather', serif;
+
+    /* Light Mode Palette */
+    --bg-color: #fffbf7;       /* Warm Paper Color */
+    --text-main: #2c1810;      /* Dark Brown/Black */
+    --text-muted: #8d6e63;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(255, 251, 247, 0.95);
+    --border: #eaddcf;
+    
+    /* Accents (The Colors) */
+    --accent-purple: #8e44ad;
+    --accent-teal: #00897b;
+    --accent-orange: #d35400;
+    --accent-gold: #f1c40f;
+    
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 body.dark-mode {
-    /* Dark Mode (Sufi Night Theme) */
-    --bg-color: #0f172a;      /* Midnight Blue */
-    --card-bg: #1e293b;       /* Dark Slate */
-    --text-main: #f8fafc;     /* White/Silver */
-    --text-muted: #94a3b8;    /* Grey */
-    --accent: #fbbf24;        /* Bright Gold */
-    --border: #334155;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    /* Dark Mode Palette */
+    --bg-color: #121212;       /* Pure Black */
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --card-bg: #1e1e1e;
+    --nav-bg: rgba(18, 18, 18, 0.95);
+    --border: #333333;
+    --shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-/* --- 2. BASE STYLES --- */
+/* --- 2. RESET --- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-main);
     font-family: var(--font-punjabi);
-    transition: background-color 0.5s ease, color 0.5s ease;
-    line-height: 1.7;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    line-height: 1.8;
 }
 
 /* --- 3. NAVBAR --- */
@@ -40,212 +48,224 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 15px 5%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
 }
 
 .logo {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
+    font-family: var(--font-eng);
     font-weight: 700;
-    color: var(--text-main);
+    font-size: 1.5rem;
 }
-.dot { color: var(--accent); }
+.color-dot { color: var(--accent-orange); font-size: 2rem; line-height: 0; }
 
-.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-right { display: flex; gap: 15px; align-items: center; }
 
 #theme-btn {
-    background: transparent;
+    background: none;
     border: 1px solid var(--text-muted);
     color: var(--text-main);
     width: 40px;
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     transition: 0.3s;
-    display: flex; /* Center icon */
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
 }
-#theme-btn:hover { color: var(--accent); border-color: var(--accent); }
+#theme-btn:hover { background: var(--text-main); color: var(--bg-color); }
 
-.contact-btn {
+.btn-contact {
     text-decoration: none;
     color: var(--text-main);
     font-weight: 600;
-    border-bottom: 2px solid var(--accent);
-    transition: 0.3s;
+    font-size: 0.9rem;
 }
-.contact-btn:hover { color: var(--accent); }
 
-/* --- 4. HERO SECTION --- */
+/* --- 4. HERO SECTION (Colorful & Professional) --- */
 .hero {
-    min-height: 80vh;
+    height: 80vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 10%;
-    max-width: 1200px;
-    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
     position: relative;
+    padding: 0 20px;
+    /* Beautiful Gradient Background */
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
 }
 
-.hero-content { max-width: 600px; }
+body.dark-mode .hero {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+}
 
-.sub-heading {
-    color: var(--accent);
+.hero-content {
+    max-width: 700px;
+    z-index: 2;
+}
+
+.category-tag {
+    display: inline-block;
+    background: rgba(142, 68, 173, 0.1); /* Light Purple */
+    color: var(--accent-purple);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
     font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .hero h1 {
     font-size: 3.5rem;
+    margin-bottom: 15px;
     line-height: 1.2;
-    margin-bottom: 20px;
 }
 
-.highlight { color: var(--accent); font-style: italic; font-family: var(--font-heading); }
-
-.poet-intro { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; }
-
-.btn-primary {
-    display: inline-block;
-    background: var(--text-main);
-    color: var(--bg-color);
-    padding: 12px 30px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-.btn-primary:hover { background: var(--accent); transform: translateY(-3px); }
-
-/* Decorative Feather Icon */
-.feather-icon {
-    font-size: 15rem;
-    color: var(--accent);
-    opacity: 0.1;
-    transform: rotate(-20deg);
+/* Text Gradient Effect */
+.gradient-text {
+    background: linear-gradient(45deg, var(--accent-orange), var(--accent-purple));
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
-/* --- 5. POETRY COLLECTION --- */
+.intro {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+.hero-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+.line { width: 50px; height: 1px; background: var(--text-muted); }
+
+/* --- 5. POETRY CARDS (The Colorful Part) --- */
 .collection-section { padding: 80px 5%; }
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: var(--accent);
-    margin: 10px auto 0;
-}
+
+.section-header { text-align: center; margin-bottom: 50px; }
+.section-header h2 { font-size: 2.5rem; }
+.section-header p { color: var(--text-muted); font-family: var(--font-eng); letter-spacing: 1px; }
 
 .poetry-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-.poetry-card {
+.poem-card {
     background: var(--card-bg);
     padding: 40px 30px;
-    border-radius: 15px;
+    border-radius: 12px;
     box-shadow: var(--shadow);
-    border: 1px solid var(--border);
-    transition: 0.4s ease;
     text-align: center;
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--border);
 }
 
-.poetry-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent);
+.poem-card:hover { transform: translateY(-10px); }
+
+/* Card Top Border Accent */
+.card-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
 }
 
-.card-icon {
-    font-size: 2rem;
-    color: var(--accent);
-    opacity: 0.3;
-    margin-bottom: 20px;
-}
+/* Color Themes for Cards */
+.color-1 .card-border { background: var(--accent-purple); }
+.color-1 .icon-box { color: var(--accent-purple); background: rgba(142, 68, 173, 0.1); }
 
-.poetry-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: var(--text-main);
-}
+.color-2 .card-border { background: var(--accent-teal); }
+.color-2 .icon-box { color: var(--accent-teal); background: rgba(0, 137, 123, 0.1); }
 
-/* Pre-line preserves the poem's line breaks */
-.poem-text {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    white-space: pre-line; 
-    line-height: 2;
-    font-weight: 500;
-    margin-bottom: 30px;
-}
+.color-3 .card-border { background: var(--accent-orange); }
+.color-3 .icon-box { color: var(--accent-orange); background: rgba(211, 84, 0, 0.1); }
 
-.card-footer {
+.icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    border-top: 1px solid var(--border);
-    padding-top: 15px;
-    font-size: 0.9rem;
-    color: var(--text-muted);
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.2rem;
 }
 
-.share-btn {
-    background: none;
-    border: none;
-    color: var(--text-main);
-    cursor: pointer;
-    font-size: 1rem;
-    transition: 0.3s;
+.poem-card h3 { font-size: 1.6rem; margin-bottom: 20px; font-weight: 700; }
+
+.poem-text {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    white-space: pre-line; /* Keeps poem formatting */
+    margin-bottom: 30px;
+    font-weight: 500;
 }
-.share-btn:hover { color: var(--accent); }
+
+.signature {
+    font-family: var(--font-eng);
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.7;
+}
 
 /* --- 6. FOOTER --- */
 footer {
     text-align: center;
-    padding: 80px 0 40px;
-    border-top: 1px solid var(--border);
+    padding: 60px 0 30px;
     margin-top: 50px;
+    border-top: 1px solid var(--border);
 }
 
-.social-links { margin: 20px 0; }
-.social-links a {
-    font-size: 1.5rem;
-    margin: 0 15px;
-    color: var(--text-muted);
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    background: var(--border);
     transition: 0.3s;
+    font-size: 1.2rem;
 }
-.social-links a:hover { color: var(--accent); }
 
-.copyright { font-size: 0.9rem; color: var(--text-muted); }
+.social-btn:hover { color: #fff; transform: scale(1.1); }
+.instagram:hover { background: #E1306C; }
+.facebook:hover { background: #4267B2; }
+.email:hover { background: var(--accent-teal); }
+
+.copyright { font-size: 0.8rem; color: var(--text-muted); }
 
 /* --- 7. ANIMATIONS --- */
 [data-animate] { opacity: 0; transform: translateY(30px); transition: 0.8s ease; }
 [data-animate].visible { opacity: 1; transform: translateY(0); }
 
+/* Mobile */
 @media (max-width: 768px) {
-    .hero { flex-direction: column; text-align: center; padding-top: 40px; }
-    .feather-icon { display: none; }
     .hero h1 { font-size: 2.5rem; }
 }
