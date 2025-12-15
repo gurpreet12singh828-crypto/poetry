@@ -1,88 +1,227 @@
-/* --- 1. CONFIGURATION --- */
+/* --- 1. CONFIGURATION (Single Theme - Sapphire & Gold) --- */
 :root {
     /* Fonts */
     --font-ui: 'Outfit', sans-serif;
     --font-heading: 'Playfair Display', serif; 
     --font-punjabi: 'Noto Sans Gurmukhi', sans-serif;
 
-    /* Light Theme (Deep Cream/Taupe) */
-    --bg-color: #f5f0eb; /* Deep Cream / Muted Taupe */
-    --text-main: #33302c; /* Deep Charcoal Brown */
-    --text-muted: #7a756e;
-    --glass-bg: rgba(255, 255, 255, 0.65); /* Keeps glass light, but soft */
-    --glass-border: rgba(255, 255, 255, 0.9);
-    --primary: #943a5e; /* Deep Rose/Burgundy - Classy Accent */
-    --secondary: #4a148c; /* Rich Violet - Accent for titles */
-    --accent: #d4ac0d; /* Gold/Ochre */
-    --gradient: linear-gradient(135deg, var(--primary) 0%, #a05a76 100%); /* Softer gradient */
-    --bg-blob: #e7e2dd; /* Muted background color - will remove animation */
-    --glass-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Softer shadow */
-}
-
-body.dark-mode {
-    /* Dark Theme (Midnight Ink - unchanged for professional contrast) */
-    --bg-color: #0d1117;
-    --text-main: #e2e8f0;
+    /* Theme Colors */
+    --bg-color: #0b1a2a; /* Deep Sapphire Blue/Near Black */
+    --text-main: #f0f4f8; /* Off-White for high contrast */
     --text-muted: #94a3b8;
-    --glass-bg: rgba(15, 23, 42, 0.7);
+    
+    --primary: #d4af37; /* Rich Gold/Brass - Primary Accent */
+    --secondary: #4a688a; /* Muted Slate Blue - Secondary Accent */
+    --accent-red: #e07a5f; /* Terracotta/Warm accent for new tags */
+    
+    --gradient: linear-gradient(135deg, #d4af37 0%, #b8860b 100%); /* Gold Gradient */
+    
+    /* Glassmorphism Refined */
+    --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
-    --primary: #f472b6; 
-    --secondary: #a78bfa; 
-    --bg-blob: #1e1b4b; /* Solid color for dark mode background */
-    --glass-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    --glass-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); 
 }
 
 /* --- 2. RESET & BASE --- */
-/* ... (unchanged) ... */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Moving Background Gradient - CHANGED TO STATIC COLOR */
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-ui);
+    background: var(--bg-color);
+    color: var(--text-main);
+    transition: background 0.5s ease, color 0.5s ease;
+    overflow-x: hidden;
+}
+
+/* Moving Background Gradient (Subtle Texture Animation) */
 .background-animate {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: var(--bg-blob);
+    background: linear-gradient(120deg, #102a43 0%, #0b1a2a 50%, #102a43 100%); /* Deep Blue Texture */
     z-index: -2;
-    /* Remove gradient animation for the sophisticated look */
-    /* animation: none; will use a subtle linear gradient to mimic texture */
-    background: linear-gradient(135deg, var(--bg-blob) 0%, var(--bg-color) 100%);
+    background-size: 300% 300%;
+    animation: textureFlow 30s ease infinite; /* Slow, continuous flow */
 }
 
-/* @keyframes gradientBG { REMOVED } */
+@keyframes textureFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
 
 /* --- 3. NAVBAR (Glassy) --- */
-/* ... (Mostly Unchanged, relies on variables) ... */
+.glass-nav {
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+    width: 90%; max-width: 1200px;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 30px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px); /* Increased blur */
+    border: 1px solid var(--glass-border);
+    border-radius: 50px;
+    z-index: 100;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.logo { font-weight: 700; font-size: 1.5rem; letter-spacing: 0px; color: var(--text-main); }
+.dot { color: var(--primary); font-size: 2.2rem; line-height: 0; }
+
+.nav-controls { display: flex; gap: 25px; align-items: center; }
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+.nav-link:hover { color: var(--primary); }
+.nav-link::after {
+    content: ''; position: absolute; bottom: -5px; left: 0;
+    width: 0; height: 2px; background: var(--primary);
+    transition: width 0.3s ease-out;
+}
+.nav-link:hover::after { width: 100%; }
+
+.cta-btn {
+    background: var(--gradient);
+    color: var(--bg-color); /* Dark text on Gold button */
+    padding: 10px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    border: 1px solid var(--primary);
+}
+.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4); } 
 
 /* --- 4. HERO SECTION --- */
-.hero h1 {
-    /* Ensures h1 is deep charcoal on the light background */
-    color: var(--text-main);
+.hero {
+    height: 100vh; display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; max-width: 1400px; margin: 0 auto; padding-top: 80px;
 }
+
+.badge {
+    background: var(--secondary);
+    color: var(--text-main);
+    border: 1px solid var(--text-muted);
+}
+
+.hero h1 { font-size: 5rem; line-height: 1; margin-bottom: 20px; } /* Larger, more impactful */
+
 .gradient-text {
-    /* Ensures the name still pops with the accent gradient */
     background: var(--gradient);
     -webkit-background-clip: text;
     color: transparent;
 }
-/* ... (Rest of Hero Unchanged) ... */
+
+.typing-container {
+    font-size: 2rem; 
+    color: var(--text-muted); 
+    margin-bottom: 30px;
+}
+.typing-text { color: var(--primary); font-weight: 500; } 
+.cursor { animation: blink 0.8s infinite; color: var(--primary); font-weight: 300; }
+
+.social-hero a { color: var(--text-muted); }
+.social-hero a:hover { color: var(--primary); transform: scale(1.1) translateY(-5px); } /* Bolder hover */
+
+/* --- 5. HERO VISUAL (Enhanced Animated Circle) --- */
+.glowing-circle {
+    width: 400px; height: 400px; /* Larger */
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    box-shadow: 0 0 80px rgba(212, 175, 55, 0.2); /* Gold Glow */
+    backdrop-filter: blur(10px);
+    animation: pulseGlow 4s infinite alternate; /* New Pulse Animation */
+}
+
+@keyframes pulseGlow {
+    from { box-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary); }
+    to { box-shadow: 0 0 30px var(--primary), 0 0 50px var(--accent-red); }
+}
+
+.main-icon { font-size: 5rem; color: var(--primary); }
+
+.orbit-dot {
+    font-size: 1.8rem;
+    color: var(--accent-red); /* Warm dots for contrast */
+}
+.dot-1 { top: 0; left: 50%; transform-origin: 0 200px; animation: orbit 8s linear infinite; }
+.dot-2 { bottom: 0; right: 50%; transform-origin: 0 -200px; animation: orbit 8s linear infinite reverse; } /* Reverse motion */
 
 /* --- 6. POETRY & ABOUT SECTIONS --- */
+.section-header { text-align: center; margin-bottom: 60px; }
 .classic-title {
-    /* Use the deep rose accent for classy titles */
+    font-family: var(--font-heading);
+    font-weight: 700;
     color: var(--primary);
 }
 .classic-title::after {
-    /* Use the rich violet for the underline for depth */
-    background: var(--secondary);
+    background: var(--accent-red);
 }
+
+/* About Section */
+.about-card {
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+}
+.icon-lrg {
+    font-size: 2.8rem;
+    color: var(--accent-red);
+}
+
+/* Masonry Grid */
+.glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+}
+.glass-card:hover { 
+    transform: translateY(-10px); 
+    border-color: var(--primary); 
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3); 
+}
+
+.card-tag {
+    background: var(--gradient);
+    color: var(--bg-color); /* Dark text on tag */
+    font-weight: 600;
+}
+.card-tag.tag-new { background: var(--accent-red); color: var(--text-main); }
+.card-tag.tag-featured { background: var(--secondary); color: var(--text-main); }
+
+.glass-card h3 { color: var(--primary); }
+.punjabi-text { color: var(--text-muted); }
+
+.card-footer span { color: var(--accent-red); }
+.read-more {
+    background: var(--primary); 
+    color: var(--bg-color);
+}
+.read-more:hover { background: var(--accent-red); }
 
 /* --- 7. FOOTER --- */
-.email-btn {
-    /* Ensures button matches the new primary color */
-    border: 2px solid var(--primary);
-    color: var(--primary);
-}
-.email-btn:hover { 
-    background: var(--primary); 
-    color: var(--bg-color); /* Light background color for hover text */
+.footer-glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
 }
 
-/* ... (Rest of CSS Unchanged) ... */
+.email-btn {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+}
+.email-btn:hover { background: var(--primary); color: var(--bg-color); }
+
+.copyright a { color: var(--text-muted); }
+.copyright a:hover { color: var(--primary); }
+
+
+/* --- 8. ANIMATIONS (Re-used and Enhanced) --- */
+/* ... (Animations remain the same, relying on visibility logic) ... */
